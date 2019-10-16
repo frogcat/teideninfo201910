@@ -32,6 +32,10 @@
       map.fitBounds(layer.getBounds());
       layer.addTo(map);
 
+      map.attributionControl.addAttribution("<a href='https://github.com/frogcat/teideninfo201910'>teideninfo201910 by frogcat</a>");
+      map.attributionControl.addAttribution("<a href='http://data.e-stat.go.jp/lodw/'>e-Stat 統計LOD(小地域ポリゴン)</a> を加工して作成");
+      map.attributionControl.addAttribution("<a href='http://teideninfo.tepco.co.jp/'>東京電力パワーグリッド株式会社(停電情報)</a> を加工して作成");
+
       L.hash(map);
 
       L.control.layers({
