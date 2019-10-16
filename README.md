@@ -14,12 +14,14 @@
 
 CC-BY 4.0
 
-# Demo
+# Demo / Preview
 
 - <https://frogcat.github.io/teideninfo201910/>
 
 
 # Note
 
-東京電力の使用する小地域名に対応する国勢調査の小地域のがない場合には GeoJSON にデータが収録されていません。
-収録されなかったデータは [error.txt](https://github.com/frogcat/teideninfo201910/blob/master/error.txt) にまとめています。
+- 東京電力の使用する小地域名と国勢調査の小地域名が完全一致する場合にのみポリゴンを付与して GeoJSON に収録しています
+- 完全一致しなかった場合は GeoJSON にデータが収録されていません
+- 収録されなかったデータは [error.txt](https://github.com/frogcat/teideninfo201910/blob/master/error.txt) にまとめています
+- 当該期間中に停電が発生しなかった小地域のポリゴンは収録されていません
