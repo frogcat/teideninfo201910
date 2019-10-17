@@ -15,7 +15,7 @@
 
 - 小地域ポリゴンは [統計LOD](http://data.e-stat.go.jp/lodw/) から取得した国勢調査小地域のポリゴンデータを加工(simplify)して作成しました。
 - 東京電力の使用する小地域名と国勢調査の小地域名が完全一致する場合にのみポリゴンを付与して GeoJSON に収録しています
-- 収録されなかったデータは [error.txt](https://github.com/frogcat/teideninfo201910/blob/master/error.txt)
+- 収録されなかったデータは [error.txt](https://github.com/frogcat/teideninfo201910/blob/master/error.txt) にまとめています
 
 
 
