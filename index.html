@@ -13,7 +13,12 @@
 <body>
   <div id="map" style="position:absolute;top:0;left:0;bottom:0;right:0;"></div>
   <script>
-    fetch("data.json").then(a => a.json()).then(json => {
+    Promise.all([
+      fetch("data.json").then(a => a.json()),
+      fetch("data.chubu.json").then(a => a.json())
+    ]).then(jsons => {
+      var json = jsons[0];
+      json.features = json.features.concat(jsons[1].features);
       var layer = L.geoJson(json, {
         onEachFeature: function(feature, layer) {
           let hue = Math.max(0, 240 - 240 * (feature.properties.hours / 90));
@@ -35,6 +40,7 @@
       map.attributionControl.addAttribution("<a href='https://github.com/frogcat/teideninfo201910'>teideninfo201910 by frogcat</a>");
       map.attributionControl.addAttribution("<a href='http://data.e-stat.go.jp/lodw/'>e-Stat 統計LOD(小地域ポリゴン)</a> を加工して作成");
       map.attributionControl.addAttribution("<a href='http://teideninfo.tepco.co.jp/'>東京電力パワーグリッド株式会社(停電情報)</a> を加工して作成");
+      map.attributionControl.addAttribution("<a href='https://teiden.chuden.jp/p/teiden_kosu/day/'>中部電力株式会社(停電情報)</a> を加工して作成");
 
       L.hash(map);
 
