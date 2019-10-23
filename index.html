@@ -20,16 +20,18 @@
       var json = jsons[0];
       json.features = json.features.concat(jsons[1].features);
       var layer = L.geoJson(json, {
-        onEachFeature: function(feature, layer) {
+        style: function(feature) {
           let hue = Math.max(0, 240 - 240 * (feature.properties.hours / 90));
-          let label = feature.properties.label + " (" + feature.properties.hours + "時間)";
           let color = "hsl(" + hue + ",100%,50%)";
-          layer.setStyle({
+          return {
             color: "#888",
             fillOpacity: 0.6,
             weight: 1,
             fillColor: color
-          });
+          };
+        },
+        onEachFeature: function(feature, layer) {
+          let label = feature.properties.label + " (" + feature.properties.hours + "時間)";
           layer.bindTooltip(label);
         }
       });
